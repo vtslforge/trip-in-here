@@ -1,15 +1,1 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
-
-/* stylelint-disable-next-line at-rule-no-unknown */
-@theme {
-  --color-case-base: #0c0f19;
-  --color-case-panel: #121624;
-  --color-case-card: #161b2a;
-  --color-case-muted: #8994ab;
-  --color-case-text: #e8eaf2;
-  --color-case-accent: #76e3d3;
-  --color-case-signal: #ff8f70;
-  --font-ui: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-case-mono: "DM Mono", ui-monospace, monospace;
-}
