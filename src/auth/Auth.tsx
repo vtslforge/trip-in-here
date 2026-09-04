@@ -1,7 +1,5 @@
-
-import { Navigate } from "react-router-dom";
-import { SignIn, useAuth } from "@clerk/react";
-
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "@clerk/react";
 
 const Auth = () => {
   const { isSignedIn, isLoaded } = useAuth();
@@ -15,10 +13,8 @@ const Auth = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <SignIn   appearance={{
-    theme: 'simple',
-  }} />
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <Outlet />
     </div>
   );
 };

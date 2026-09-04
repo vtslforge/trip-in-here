@@ -10,7 +10,19 @@ const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <ClerkProvider
+        signInUrl="/sign-in"
+        signUpUrl="/sign-up"
+        localization={{
+          signIn: {
+            start: {
+              title: "Welcome To TripInHere",
+              subtitle: "Sign in to continue",
+            },
+          },
+        }}
+        publishableKey={PUBLISHABLE_KEY}
+      >
         <App />
       </ClerkProvider>
     </BrowserRouter>
