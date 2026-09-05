@@ -3,11 +3,12 @@ import { SignIn, SignUp } from "@clerk/react";
 
 import Auth from "../auth/Auth";
 import ProtectedRoute from "../auth/ProtectedRoute";
-import Home from "../home/Home";
+import Home from "../pages/home/Home";
 
 const App = () => {
   return (
     <Routes>
+      {/* Public route */}
       <Route path="/" element={<Navigate to="/sign-in" replace />} />
 
       <Route element={<Auth />}>
@@ -54,6 +55,7 @@ const App = () => {
         />
       </Route>
 
+      {/* Protected Route */}
       <Route element={<ProtectedRoute />}>
         <Route path="/home" element={<Home />} />
       </Route>
