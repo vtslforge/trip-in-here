@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
         localization={{
           signIn: {
             start: {
-              title: "Welcome To TripInHere",
+              title: "Welcome To OrbitSpace",
               subtitle: "Sign in to continue",
             },
           },
