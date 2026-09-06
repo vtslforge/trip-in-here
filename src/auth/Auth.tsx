@@ -9,7 +9,7 @@ const Auth = () => {
   }
 
   if (isSignedIn) {
-    return <Navigate to="/home" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   return (

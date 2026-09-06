@@ -3,7 +3,9 @@ import { SignIn, SignUp } from "@clerk/react";
 
 import Auth from "../auth/Auth";
 import ProtectedRoute from "../auth/ProtectedRoute";
-import Home from "../pages/home/Home";
+import Task from "../pages/Task";
+import Layout from "../layout/Layout";
+import Dashboard from "../pages/Dashboard";
 
 const App = () => {
   return (
@@ -57,7 +59,10 @@ const App = () => {
 
       {/* Protected Route */}
       <Route element={<ProtectedRoute />}>
-        <Route path="/home" element={<Home />} />
+        <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/task" element={<Task />} />
+        </Route>
       </Route>
       <Route path="*" element={<Navigate to="/sign-in" replace />} />
     </Routes>
