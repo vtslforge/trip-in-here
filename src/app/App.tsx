@@ -6,6 +6,7 @@ import ProtectedRoute from "../auth/ProtectedRoute";
 import Task from "../pages/Task";
 import Layout from "../layout/Layout";
 import Dashboard from "../pages/Dashboard";
+import Todo from "../pages/Todo";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/task" element={<Task />} />
+          <Route path="/todo" element={<Todo />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/sign-in" replace />} />

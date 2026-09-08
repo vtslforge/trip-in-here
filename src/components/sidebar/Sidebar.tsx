@@ -16,6 +16,12 @@ const Sidebar = () => {
         >
           task
         </NavLink>
+        <NavLink
+          to="/todo"
+          style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+        >
+          Todo
+        </NavLink>
       </nav>
     </aside>
   );
