@@ -1,11 +1,15 @@
 import type {
-  handleTaskCreationType,
+  useTaskCreationType,
   taskValuesType,
   toggleType,
 } from "./taskTypes";
-import { useState, type SubmitEvent } from "react";
+import { useEffect, useState, type SubmitEvent } from "react";
 
-// Function to handle the form toggle functionality
+/* 
+-----------------------------------------------------------------------------------
+function to handle the toggle of the form UI
+-----------------------------------------------------------------------------------
+*/
 export function usetoggleForm(): toggleType {
   const [formStatus, setformStatus] = useState(false);
 
@@ -15,19 +19,39 @@ export function usetoggleForm(): toggleType {
 
   return { formStatus, toggleForm };
 }
-
-// function to handle form data
-export function handleTaskCreation(): handleTaskCreationType {
-  const [inputData, setInputData] = useState({
+/* 
+-----------------------------------------------------------------------------------
+function to handle form data data and save it to the savedData state
+-----------------------------------------------------------------------------------
+*/
+export function useTaskCreation(): useTaskCreationType {
+  const [inputData, setInputData] = useState<taskValuesType>({
     id: "",
     title: "",
+    description: "",
+    priority: "Normal",
+    dueDate: "-",
   });
-  const [savedData, setsavedData] = useState<taskValuesType[]>([]);
+
+  const [savedData, setsavedData] = useState<taskValuesType[]>(() => {
+    const savedTasks = localStorage.getItem("savedData");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("savedData", JSON.stringify(savedData));
+  }, [savedData]);
+
+  // handle save function to save the input data to the savedData state
   function handleSave(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert(`data saved ${inputData} and ${savedData}`);
-    console.log("input" + inputData, "saved" + savedData);
-    setsavedData((prev) => [inputData, ...prev]);
+    const handleUUId = crypto.randomUUID();
+    const newTaskWithID = {
+      ...inputData,
+      id: handleUUId,
+    };
+    setsavedData((prev) => [newTaskWithID, ...prev]);
   }
-  return { handleSave, inputData, setInputData };
+  return { handleSave, inputData, setInputData, savedData };
 }
+

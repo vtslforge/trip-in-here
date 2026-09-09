@@ -1,4 +1,5 @@
-import { type toggleType } from "./taskTypes";
+import type { toggleType } from "../taskTypes";
+
 
 const Header = ({ toggleForm }: toggleType) => {
   return (

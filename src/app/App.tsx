@@ -3,10 +3,9 @@ import { SignIn, SignUp } from "@clerk/react";
 
 import Auth from "../auth/Auth";
 import ProtectedRoute from "../auth/ProtectedRoute";
-import Task from "../pages/Task";
 import Layout from "../layout/Layout";
 import Dashboard from "../pages/Dashboard";
-import Todo from "../pages/Todo";
+import Task from "../pages/Task";
 
 const App = () => {
   return (
@@ -62,8 +61,7 @@ const App = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/task" element={<Task />} />
-          <Route path="/todo" element={<Todo />} />
+          <Route path="/todo" element={<Task />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/sign-in" replace />} />
