@@ -1,23 +1,38 @@
-import { useTaskCreation } from "../components/todo/handleTask";
-import { usetoggleForm } from "../components/todo/handleTask";
-import { FilterUi } from "../components/todo/Ui/FilterUi";
-import Header from "../components/todo/Ui/Header";
-import TaskContainer from "../components/todo/Ui/TaskContainer";
+import { FilterUi } from "../components/todo/components/FilterUi";
+import Header from "../components/todo/components/Header";
+import TaskContainer from "../components/todo/components/TaskContainer";
+import { useOutletContext } from "react-router-dom";
+import type { TodoOutletContext } from "../components/todo/taskTypes";
 
 const Todo = () => {
-  const { toggleForm, formStatus } = usetoggleForm();
-  const { handleSave, inputData, setInputData, savedData } =
-    useTaskCreation();
+  const {
+    toggleForm,
+    formStatus,
+    handleSave,
+    inputData,
+    setInputData,
+    savedData,
+    handleDelete,
+    filter,
+    handleFilter,
+    filteredData,
+    filters,
+  } = useOutletContext<TodoOutletContext>();
+
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <Header toggleForm={toggleForm} />
-      <FilterUi/>
+      <FilterUi filter={filter} handleFilter={handleFilter} filters={filters} />
       <TaskContainer
+        handleDelete={handleDelete}
         formStatus={formStatus}
         handleSave={handleSave}
         inputData={inputData}
         setInputData={setInputData}
         savedData={savedData}
+        filteredData={filteredData}
+        filter={filter}
+        handleFilter={handleFilter}
       />
     </div>
   );

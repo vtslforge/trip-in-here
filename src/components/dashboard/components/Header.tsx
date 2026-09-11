@@ -1,5 +1,4 @@
-import userData from "./hooks/useCurrentUser";
-
+import userData from "../hooks/useCurrentUser";
 const Header = () => {
   const username = userData();
   return (

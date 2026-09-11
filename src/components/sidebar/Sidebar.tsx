@@ -6,13 +6,26 @@ const Sidebar = () => {
       <nav className="flex flex-col gap-2">
         <NavLink
           to="/dashboard"
-          style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          className={({ isActive }) =>
+            `rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+              isActive
+                ? "bg-gray-900 text-white shadow-sm"
+                : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+            }`
+          }
         >
           Dashboard
         </NavLink>
+
         <NavLink
           to="/todo"
-          style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          className={({ isActive }) =>
+            `rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+              isActive
+                ? "bg-gray-900 text-white shadow-sm"
+                : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+            }`
+          }
         >
           Task's
         </NavLink>

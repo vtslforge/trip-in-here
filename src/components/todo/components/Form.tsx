@@ -1,10 +1,6 @@
 import type { useTaskCreationType, taskValuesType } from "../taskTypes";
 
-const Form = ({
-  handleSave,
-  inputData,
-  setInputData,
-}: useTaskCreationType) => {
+const Form = ({ handleSave, inputData, setInputData }: useTaskCreationType) => {
   return (
     <div className="w-80 shrink-0 rounded-2xl border border-gray-300 bg-white p-5 shadow-sm">
       <p className="mb-5 text-xl font-semibold text-gray-800">New Task</p>
