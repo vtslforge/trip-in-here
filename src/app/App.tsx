@@ -6,6 +6,7 @@ import ProtectedRoute from "../auth/ProtectedRoute";
 import Layout from "../layout/Layout";
 import Dashboard from "../pages/Dashboard";
 import Task from "../pages/Task";
+import Course from "../pages/Course";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/todo" element={<Task />} />
+          <Route path="/course" element={<Course />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/sign-in" replace />} />
