@@ -52,6 +52,10 @@ const AddCourse = ({
         </select>
 
         <input
+          value={inputValue.url}
+          onChange={(e) =>
+            setInputValue((prev) => ({ ...prev, url: e.target.value }))
+          }
           type="url"
           name="videoUrl"
           placeholder="Video link"

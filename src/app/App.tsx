@@ -7,6 +7,7 @@ import Layout from "../layout/Layout";
 import Dashboard from "../pages/Dashboard";
 import Task from "../pages/Task";
 import Course from "../pages/Course";
+import VideoPlayer from "../components/course/components/VideoPlayer";
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/todo" element={<Task />} />
           <Route path="/course" element={<Course />} />
+          <Route path="/player/:url" element={<VideoPlayer />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/sign-in" replace />} />
