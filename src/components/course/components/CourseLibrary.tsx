@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import type { Dispatch, SetStateAction } from "react";
 import type { InputType } from "../hooks/useCourse";
 
 type CourseLibraryProps = {
   savedCourse: InputType[];
+  setCurrentWatch: Dispatch<SetStateAction<InputType[] | undefined>>;
+  handleCurrentNavAndValue: (course: InputType) => void;
 };
 
-
-const CourseLibrary = ({ savedCourse }: CourseLibraryProps) => {
-  const navigate = useNavigate();
-const handleVideoPlayback = (url: string) => {
-  navigate(`/player/${encodeURIComponent(url)}`);;
-};
+const CourseLibrary = ({
+  savedCourse,
+  handleCurrentNavAndValue,
+}: CourseLibraryProps) => {
   return (
     <main className="w-full min-h-125 px-6 py-8">
       <div className="mx-auto max-w-7xl">
@@ -73,12 +73,9 @@ const handleVideoPlayback = (url: string) => {
 
                   {/* Footer */}
                   <div className="mt-5 flex items-center justify-between border-t border-gray-800 pt-4">
-                    {/* <span className="max-w-37.5 truncate text-xs text-gray-500">
-        
-                    </span> */}
-
                     <button
-                      onClick={() => handleVideoPlayback(saved.url)}
+
+                      onClick={() => handleCurrentNavAndValue(saved)}
                       className="rounded-lg bg-white px-3 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-200"
                     >
                       Open Course

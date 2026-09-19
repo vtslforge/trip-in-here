@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
 import { useState, type CSSProperties } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   MediaController,
   MediaControlBar,
@@ -17,6 +17,7 @@ import {
 
 const VideoPlayer = () => {
   const { url } = useParams();
+  const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const storageKey = `video-progress-${url}`;
@@ -45,6 +46,13 @@ const VideoPlayer = () => {
 
   return (
     <div className="w-full">
+      <button
+        type="button"
+        onClick={() => navigate("/course")}
+        className="mb-4 rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+      >
+        Back to courses
+      </button>
       <MediaController
         style={{
           width: "100%",

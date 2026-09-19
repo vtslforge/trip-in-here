@@ -5,11 +5,13 @@ import {
   useTaskFilter,
   useToggleForm,
 } from "../components/todo/handleTask";
+import { useStat } from "../components/course/hooks/useLibrary";
 
 const Layout = () => {
   const toggleFormState = useToggleForm();
   const taskCreationState = useTaskCreation();
   const taskFilterState = useTaskFilter(taskCreationState.savedData);
+  const currentWatch = useStat();
 
   return (
     <div className="flex">
@@ -20,6 +22,7 @@ const Layout = () => {
             ...toggleFormState,
             ...taskCreationState,
             ...taskFilterState,
+            ...currentWatch,
           }}
         />
       </main>
